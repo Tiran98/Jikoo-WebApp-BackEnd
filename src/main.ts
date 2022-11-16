@@ -1,16 +1,16 @@
-import * as express from 'express';
+//import * as express from 'express';
 import * as fs from 'fs';
 import * as https from 'https';
 import * as path from 'path';
 
 import { AppModule } from './app.module';
-import { ExpressAdapter } from '@nestjs/platform-express';
+//import { ExpressAdapter } from '@nestjs/platform-express';
 import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest-express-application.interface';
 import { NestFactory } from '@nestjs/core';
 
 async function bootstrap() {
-  const server = express();
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(server));
+  //const server = express();
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
   await app.init();
   app.enableCors();
 
